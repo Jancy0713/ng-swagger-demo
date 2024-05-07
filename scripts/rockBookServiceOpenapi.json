@@ -1,0 +1,66 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "RockBook Service",
+    "description" : "RockBook Service API.",
+    "version" : "2023-12-09T11:31:08Z"
+  },
+  "servers" : [ {
+    "url" : "https://y9tilnh2cc.execute-api.us-west-2.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "dev"
+      }
+    }
+  } ],
+  "paths" : {
+    "/api/user" : {
+      "post" : {
+        "security" : [ {
+          "DevUserServiceStackUserPoolAuthorizer232EFBF9" : [ ]
+        } ]
+      }
+    },
+    "/api/user/{id}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "security" : [ {
+          "DevUserServiceStackUserPoolAuthorizer232EFBF9" : [ ]
+        } ]
+      },
+      "put" : {
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "security" : [ {
+          "DevUserServiceStackUserPoolAuthorizer232EFBF9" : [ ]
+        } ]
+      }
+    },
+    "/api" : {
+      "get" : { }
+    }
+  },
+  "components" : {
+    "securitySchemes" : {
+      "DevUserServiceStackUserPoolAuthorizer232EFBF9" : {
+        "type" : "apiKey",
+        "name" : "Authorization",
+        "in" : "header",
+        "x-amazon-apigateway-authtype" : "cognito_user_pools"
+      }
+    }
+  }
+}
